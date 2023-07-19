@@ -18,13 +18,20 @@ This doc is a quick guide on how to setup Hyperledger Fabric and Fabric Samples 
 
     * Bring up the test network : 
         ```
-        cd fabric-samples/test-
+        cd fabric-samples/test-network
         
         ./network.sh down // Cleanup containers or artifacts from any previous runs
-        # TODO - add all cleanup steps shared by Ahmed 
+
+        # Other cleanup steps from `test-network.md`:
+        docker rm -f $(docker ps -aq)
+        docker rmi -f $(docker images -q)
+        docker volume ls
+        docker volume prune
+        docker network prune
+        docker system prune -a --volumes
 
         ./network.sh up // Creates a Fabric network that consists of two peer nodes, one ordering node, without a channel
-
+         # or 
         ./network.sh up createChannel // Creates a network with a channel
         ```
     * Verify if the docker containers for the peers and orderer are active : `docker ps -a`
