@@ -55,11 +55,9 @@ This doc is a quick guide on how to setup Hyperledger Fabric and Fabric Samples 
 
         export PATH=${PWD}/../bin:$PATH
 
-        # 3. Set FABRIC_CFG_PATH to point to the core.yaml file in the fabric-samples repository
+        # 3. Set FABRIC_CFG_PATH to point to the folder in which the core.yaml file lies (fabric-samples/config)
 
         export FABRIC_CFG_PATH=$PWD/../config/
-
-        # TODO - verify this command, since it doesn't exactly point to the yaml file (fabric-samples/config/core.yaml)
 
         # 4. Set the environment variables that allow you to operate the peer CLI as Org1:
 
