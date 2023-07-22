@@ -9,9 +9,9 @@ tar -xzf softhsm-2.5.0.tar.gz
 
 cd  softhsm-2.5.0
 
-./configure --disable-gost
-make
-sudo make install
+./configure --disable-gost  
+make  
+sudo make install  
 
 softhsm2-util --init-token --slot 0 --label ForFabric --so-pin 1234 --pin 98765432   
 
