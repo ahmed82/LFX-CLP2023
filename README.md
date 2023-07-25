@@ -3,9 +3,15 @@
 https://github.com/hyperledger-labs/mirbft
 https://github.com/SmartBFT-Go/fabric
 Fabric RFC for SmartBFT: https://github.com/hyperledger/fabric-rfcs/pull/33/commits/433095b29588e4df894a829f5655b3647666a233
-That was proposed, and read the follow-up discussion https://github.com/hyperledger/fabric-rfcs/pull/33
+That was proposed, and read the follow-up discussion, https://github.com/hyperledger/fabric-rfcs/pull/33
 
-Requirement for 07-26 session
+Requirement for the 07-26-27 session: the Start function:
+```go
+func (c *Chain) Start() {
+	//TODO
+}
+```
+please review the following for reference:
 ## Raft implementation in Fabric
 
 * [FAB-11162] Implement bare minimum Raft-based chain
