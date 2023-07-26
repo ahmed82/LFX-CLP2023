@@ -34,3 +34,6 @@ https://github.com/SmartBFT-Go/fabric
 ## How to start bdls in:
 * BDLS bdls.NewConsensus(config)
 * BDLSChain
+
+## Certificates Management Guide
+https://hyperledger-fabric.readthedocs.io/en/release-2.5/certs_management.html
