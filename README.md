@@ -15,7 +15,7 @@ func (c *Chain) Start() {
 	//TODO
 }
 ```
-please review the following for reference:
+Please review the following for reference:
 ## Raft implementation in Fabric
 
 * [FAB-11162] Implement bare minimum Raft-based chain
@@ -37,3 +37,6 @@ https://github.com/SmartBFT-Go/fabric
 
 ## Certificates Management Guide
 https://hyperledger-fabric.readthedocs.io/en/release-2.5/certs_management.html
+
+## Membership Service Provider
+https://hyperledger-fabric.readthedocs.io/en/release-2.5/membership/membership.html
