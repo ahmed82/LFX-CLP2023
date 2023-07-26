@@ -40,3 +40,6 @@ https://hyperledger-fabric.readthedocs.io/en/release-2.5/certs_management.html
 
 ## Membership Service Provider
 https://hyperledger-fabric.readthedocs.io/en/release-2.5/membership/membership.html
+
+## etcd RAFT
+https://github.com/etcd-io/raft
