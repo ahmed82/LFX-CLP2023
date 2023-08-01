@@ -43,3 +43,7 @@ https://hyperledger-fabric.readthedocs.io/en/release-2.5/membership/membership.h
 
 ## etcd RAFT
 https://github.com/etcd-io/raft
+
+### Source Code Analysis of Raft Consensus Module in Fabric2.2
+https://www.cnblogs.com/GarrettWale/p/16131853.html
+
