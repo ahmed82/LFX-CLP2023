@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package pb;
+
+import "user.proto";
+
+option go_package = "github.com/deepto98/grpc-app/pb";
+
+// Defining rpc for request  to create user
+message CreateUserRequest{
+    // syntax : type name = field number
+    string username = 1;
+    string full_name = 2;
+    string email = 3;
+    string password = 4;
+}
+
+// Defining rpc for response to create user
+message CreateUserResponse{
+    User user = 1;
+}
