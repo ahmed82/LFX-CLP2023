@@ -154,4 +154,79 @@ type ConsenterSupport interface {
 - The consensus instance uses `ConsenterSupport` to access consensus external resources.
 
 
+### Orderer Startup Process
+The steps in the startup process of the orderer are:
+- load configuration file: Load parses the orderer YAML file and environment, producing a struct suitable for config use, returning error on failure.
+- Set Logger
+- Set up a local MSP `(msp for the orderer nodes)`
+- The core startup part:
+	- load the genesis block
+	- Create ledger factory
+	- Create a native gRPCServer
+	- If the consensus requires a cluster (raft), create a cluster gRPCServer
+	- Create Registrar: Set up the consensus plug-in, start each channel, and if the consensus is raft, also set the - cluster's gRPC interface processing function Step
+	- Create a local server: it is the processing service of atomic broadcast, which integrates Broadcast processing - function, deliver processing function and registrar
+	- open profile
+	- Start the cluster gRPC service
+	- Start the native gRPC service
+
+
+
+#### Start the entry main
+github.com\hyperledger\fabric\orderer\common\server\main.go
+
+```go
+// Main is the entry point of orderer process
+func Main() {
+	fullCmd := kingpin.MustParse(app.Parse(os.Args[1:]))
+
+	// "version" command
+	if fullCmd == version.FullCommand() {
+		fmt.Println(metadata.GetVersionInfo())
+		return
+	}
+
+	// loading local config
+	conf, err := localconfig.Load()
+	if err != nil {
+		logger.Error("failed to parse config: ", err)
+		os.Exit(1)
+	}
+	// initializing logging
+	initializeLogging()
+	// 
+	initializeLocalMsp(conf)
+
+	prettyPrintStruct(conf)
+	// a function which is written inline in modern fabric version
+	Start(fullCmd, conf)
+}
+
+```
+
+## Miscelleneous
+
+> ***BCCSP*** is the blockchain cryptographic service provider that offers
+ the implementation of cryptographic standards and algorithms.
+
+
+### Write Ahead Logs in Fabric: 
+In the context of Hyperledger Fabric, a Write-Ahead Log (WAL) is a crucial component of the blockchain framework that helps ensure data consistency and durability. The WAL mechanism is used to maintain a sequential record of transactions before they are committed to the actual blockchain ledger.
+
+Here's how the Write-Ahead Log works in Hyperledger Fabric:
+
+1. **Transaction Proposal and Ordering:** In Hyperledger Fabric, before a transaction is added to the ledger, it goes through the process of endorsement and ordering. During endorsement, the transaction is executed and verified by endorsing peers. After endorsement, the transactions are ordered into a block by the ordering service.
+
+2. **Write-Ahead Log Creation:** Once the transactions are ordered into a block by the ordering service, they are temporarily stored in the Write-Ahead Log. The Write-Ahead Log is a sequential record of the transactions in the order they were received.
+
+3. **Validation and Commitment:** After transactions are recorded in the Write-Ahead Log, they are sent to the validating peers. The validating peers validate the transactions, ensuring that they meet the endorsement policies and are consistent with the current state of the ledger.
+
+4. **Commitment to the Ledger:** Once transactions are successfully validated, they are considered valid and are committed to the actual blockchain ledger. This means the transactions become a permanent part of the ledger's history and cannot be altered.
+
+5. **Checkpointing:** Periodically, the Write-Ahead Log is "checkpointed." Checkpointing involves saving a snapshot of the current state of the ledger and clearing the log of already committed transactions. This process helps manage the growth of the Write-Ahead Log and maintain efficient performance.
+
+The Write-Ahead Log mechanism in Hyperledger Fabric ensures that transactions are recorded in a sequential and durable manner. If a crash or failure occurs, the system can recover by replaying the transactions from the Write-Ahead Log to bring the ledger back to a consistent state.
+
+The Write-Ahead Log plays a critical role in providing fault tolerance, data consistency, and recovery mechanisms in Hyperledger Fabric, making it an integral part of the framework's architecture.
+
 
