@@ -47,3 +47,5 @@ https://github.com/etcd-io/raft
 ### Source Code Analysis of Raft Consensus Module in Fabric2.2
 https://www.cnblogs.com/GarrettWale/p/16131853.html
 
+## Initial commit for ledger code.
+https://github.com/BDLS-bft/bdls-fabric/commit/7439cd35e38320c65d87a2ff4044d2de4c9115bf
