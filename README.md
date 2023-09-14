@@ -27,6 +27,9 @@ https://github.com/BDLS-bft/fabric/commit/96735d2fb22abefadc8bddddb85199bb140b2a
 * [FAB-13178] Move raft logic to its own file
 https://github.com/BDLS-bft/fabric/commit/fc7395f45ffc32683c0a25f74eb3eee76e59fb9d
 
+* [FAB-11703] Support multi-node Raft cluster
+https://github.com/BDLS-bft/bdls-fabric/commit/5a515341853a053d0299960a6d1b33efee25b85d
+
 * Raft in the chain.go as of today's code Start() function
 ## BFT start protocol 
 * Smart BFT-go chain.go - Start() function.
