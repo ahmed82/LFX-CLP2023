@@ -13,3 +13,4 @@
  
 * [Raft in Fabric box.pdf](Raft%20in%20Fabric%20box.pdf) 
 
+* [UnderstandingBFTConsensusintheAgeofBlockchains.pdf](UnderstandingBFTConsensusintheAgeofBlockchains.pdf)
