@@ -18,3 +18,10 @@
 - add update ticker to the chain.go file
 - collaborate with deepto for message task. 
 
+### 31 August
+- worked on configuring the BDLS nodes using gRPC
+
+### 21 September 
+- working on modifying the BDLS repository.
+- implementing the orderer interfaces
+- working on understanding RPC interface and implementing the `startConsensus` object.

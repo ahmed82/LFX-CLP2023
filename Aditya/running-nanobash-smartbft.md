@@ -6,7 +6,7 @@
 2. Get the installation script - `curl -sSLO https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh && chmod +x install-fabric.sh`  and run the command `./install-fabric.sh` 
 This clones the `hyperledger/fabric-samples` repository and downloads fabric binaries. We can either directly use these binaries or compile fabric -  [docs](https://hyperledger-fabric.readthedocs.io/en/latest/dev-setup/build.html) and use the binaries from there. 
 
-- If there are no fabric binaries, then it will use the binaries downloaded inside the ,`fabric-samples/bin`. 
+- If there are no fabřic binaries, then it will use the binaries downloaded inside the ,`fabric-samples/bin`. 
 
 3. To run chaincode as a service, we configure the `peer` to use the `ccaas` external builder downloaded with the binaries above. The path specified in the default config file is only valid within the peer container which we won't be using. Editing the `fabric-samples/config/core.yaml` file and modifying the `externalBuilders` field to point to the correct path. The configuration should look something like the following:
 ```yaml
